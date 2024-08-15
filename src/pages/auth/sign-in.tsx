@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { toast } from "sonner";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -22,6 +24,13 @@ export function SignIn() {
   async function handleSignIn(data: SignInForm) {
     console.log(data);
     await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    toast.success("Enviamos um link de autenticação!", {
+      action: {
+        label: "Reenviar",
+        onClick: () => {},
+      },
+    });
   }
 
   return (
